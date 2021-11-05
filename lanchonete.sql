@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 04-Nov-2021 às 01:25
+-- Tempo de geração: 05-Nov-2021 às 01:20
 -- Versão do servidor: 10.4.20-MariaDB
 -- versão do PHP: 8.0.9
 
@@ -114,6 +114,29 @@ INSERT INTO `lanches` (`codigo`, `descricao`, `preco`) VALUES
 (5, 'Sanduíche', 7),
 (6, 'Batata Frita', 9);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `codigo` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `data_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `data_alteracao` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `situacao` enum('Habilitado','Desabilitado') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`codigo`, `nome`, `email`, `senha`, `data_registro`, `data_alteracao`, `situacao`) VALUES
+(1, 'Caroline', 'caroline@email.com', '202cb962ac59075b964b07152d234b70', '2021-11-04 21:41:36', '2021-11-04 21:41:36', 'Habilitado');
+
 --
 -- Índices para tabelas despejadas
 --
@@ -143,6 +166,12 @@ ALTER TABLE `lanches`
   ADD PRIMARY KEY (`codigo`);
 
 --
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`codigo`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -169,6 +198,12 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `lanches`
   MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
