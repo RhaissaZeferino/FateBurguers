@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 05-Nov-2021 às 01:20
+-- Tempo de geração: 15-Nov-2021 às 23:01
 -- Versão do servidor: 10.4.20-MariaDB
 -- versão do PHP: 8.0.9
 
@@ -117,25 +117,18 @@ INSERT INTO `lanches` (`codigo`, `descricao`, `preco`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura da tabela `pedido`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `pedido` (
   `codigo` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(40) NOT NULL,
-  `data_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `data_alteracao` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `situacao` enum('Habilitado','Desabilitado') NOT NULL
+  `nome_produto` varchar(100) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `preco` decimal(6,2) NOT NULL,
+  `observacao` varchar(200) NOT NULL,
+  `cod_usuario` int(11) DEFAULT NULL,
+  `data_hora` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`codigo`, `nome`, `email`, `senha`, `data_registro`, `data_alteracao`, `situacao`) VALUES
-(1, 'Caroline', 'caroline@email.com', '202cb962ac59075b964b07152d234b70', '2021-11-04 21:41:36', '2021-11-04 21:41:36', 'Habilitado');
 
 --
 -- Índices para tabelas despejadas
@@ -166,9 +159,9 @@ ALTER TABLE `lanches`
   ADD PRIMARY KEY (`codigo`);
 
 --
--- Índices para tabela `usuario`
+-- Índices para tabela `pedido`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `pedido`
   ADD PRIMARY KEY (`codigo`);
 
 --
@@ -191,19 +184,13 @@ ALTER TABLE `bebidas`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de tabela `lanches`
+-- AUTO_INCREMENT de tabela `pedido`
 --
-ALTER TABLE `lanches`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de tabela `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `pedido`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
