@@ -33,10 +33,10 @@
                                     Cadastros
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" id="modal-clientes" href="#" role="button" class="btn" data-toggle="modal" data-target="#modalCliente">Clientes</a>
-                                    <a class="dropdown-item" id="modal-bebidas" href="#" role="button" class="btn" data-toggle="modal" data-target="#modalBebida">Bebidas</a>
-                                    <a class="dropdown-item" id="modal-lanches" href="#" role="button" class="btn" data-toggle="modal" data-target="#modalLanches">Lanches</a>
-                                    <a class="dropdown-item" id="modal-adicionais" href="editarAdicionais.php" role="button" class="btn">Adicionais</a>
+                                    <a class="dropdown-item" id="modal-clientes" href="indexCliente.php" role="button" class="btn">Clientes</a>
+                                    <a class="dropdown-item" id="modal-bebidas" href="indexBebida.php" role="button" class="btn">Bebidas</a>
+                                    <a class="dropdown-item" id="modal-lanches" href="indexLanche.php" role="button" class="btn">Lanches</a>
+                                    <a class="dropdown-item" id="modal-adicionais" href="indexAdicional.php" role="button" class="btn">Adicionais</a>
                                     <!-- <div class="dropdown-divider"></div> -->
                                 </div>
                             </li>
